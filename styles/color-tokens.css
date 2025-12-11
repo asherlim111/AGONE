@@ -1,0 +1,211 @@
+/* 
+ * Design System Color Tokens
+ * Auto-generated from color palette
+ */
+
+:root {
+  /* Menu */
+  --menu: #05153D;
+
+  /* Neutral Colors */
+  --neutral-lightest: #F5F7F9;
+  --neutral-25: #EFF2F5;
+  --neutral-50: #E5E8F0;
+  --neutral-100: #D6DBE6;
+  --neutral-200: #B5C1D3;
+  --neutral-300: #9FAEC6;
+  --neutral-400: #8C9EBB;
+  --neutral-500: #7288AC;
+  --neutral-600: #556C91;
+  --neutral-700: #3C4C67;
+  --neutral-800: #283243;
+  --neutral-900: #171D27;
+
+  /* White Transparency */
+  --white-0: #FFFFFF00;
+  --white-5: #FFFFFF0D;
+  --white-10: #FFFFFF1A;
+  --white-20: #FFFFFF33;
+  --white-30: #FFFFFF4D;
+  --white-40: #FFFFFF66;
+  --white-50: #FFFFFF80;
+  --white-60: #FFFFFF99;
+  --white-70: #FFFFFFB3;
+  --white-80: #FFFFFFCC;
+  --white-90: #FFFFFFE6;
+  --white-100: #FFFFFF;
+
+  /* Primary - Blue */
+  --primary-lightest: #F5FAFF;
+  --primary-25: #EBF3FF;
+  --primary-50: #D8E7FE;
+  --primary-100: #C4DAFD;
+  --primary-200: #9CC2FC;
+  --primary-300: #74A9FB;
+  --primary-400: #4D91FA;
+  --primary-500: #296DF5;
+  --primary-600: #0A50DC;
+  --primary-700: #083DA6;
+  --primary-800: #052970;
+  --primary-900: #041A49;
+
+  /* Secondary - Purple */
+  --secondary-lightest: #F7F4FF;
+  --secondary-25: #EFE9FF;
+  --secondary-50: #E4D9FF;
+  --secondary-100: #CCB8FF;
+  --secondary-200: #BA9FFF;
+  --secondary-300: #A785FF;
+  --secondary-400: #8E62FF;
+  --secondary-500: #7742FF;
+  --secondary-600: #630AFF;
+  --secondary-700: #4C00D1;
+  --secondary-800: #380099;
+  --secondary-900: #230061;
+
+  /* Purple */
+  --purple-lightest: #FBF6FE;
+  --purple-25: #F6E9FE;
+  --purple-50: #F1DDFD;
+  --purple-100: #DDA3FA;
+  --purple-200: #D295F9;
+  --purple-300: #C472F7;
+  --purple-400: #B650F1;
+  --purple-500: #AB39F3;
+  --purple-600: #892EC2;
+  --purple-700: #672292;
+  --purple-800: #441761;
+  --purple-900: #2D0447;
+
+  /* Cyan */
+  --cyan-lightest: #F5FEFF;
+  --cyan-25: #EBFDFE;
+  --cyan-50: #DCFCFE;
+  --cyan-100: #BFFAFD;
+  --cyan-200: #84F4FB;
+  --cyan-300: #08E1ED;
+  --cyan-400: #08C9D4;
+  --cyan-500: #06AFB8;
+  --cyan-600: #008FA0;
+  --cyan-700: #007388;
+  --cyan-800: #005363;
+  --cyan-900: #012A2D;
+
+  /* Success - Green */
+  --green-lightest: #F4FFF8;
+  --green-25: #E1FEEF;
+  --green-50: #C5FCDF;
+  --green-100: #9DFBCA;
+  --green-200: #4CFA9F;
+  --green-300: #0EE775;
+  --green-400: #0CD46C;
+  --green-500: #0AA956;
+  --green-600: #099049;
+  --green-700: #007535;
+  --green-800: #054D27;
+  --green-900: #032B16;
+
+  /* Lime */
+  --lime-lightest: #FDFFF0;
+  --lime-25: #F8FED8;
+  --lime-50: #EEFDA7;
+  --lime-100: #E2F76E;
+  --lime-200: #D9F53D;
+  --lime-300: #C7E80C;
+  --lime-400: #BADA0C;
+  --lime-500: #9EB80A;
+  --lime-600: #849A09;
+  --lime-700: #6B7E07;
+  --lime-800: #4C5903;
+  --lime-900: #2A3201;
+
+  /* Warning - Yellow */
+  --yellow-lightest: #FFFCEB;
+  --yellow-25: #FFF8D6;
+  --yellow-50: #FFF3B8;
+  --yellow-100: #FFF0A3;
+  --yellow-200: #FFE97A;
+  --yellow-300: #FFE252;
+  --yellow-400: #FFDB29;
+  --yellow-500: #FAD000;
+  --yellow-600: #EBB600;
+  --yellow-700: #CC9500;
+  --yellow-800: #856100;
+  --yellow-900: #3D3200;
+
+  /* Orange */
+  --orange-lightest: #FFF6F0;
+  --orange-25: #FFEBDB;
+  --orange-50: #FFDABD;
+  --orange-100: #FFBE89;
+  --orange-200: #FFAB5F;
+  --orange-300: #FF9450;
+  --orange-400: #FF7E42;
+  --orange-500: #FF6733;
+  --orange-600: #F24A1C;
+  --orange-700: #D44116;
+  --orange-800: #9D2E0B;
+  --orange-900: #571905;
+
+  /* Error - Red */
+  --red-lightest: #FFF5F5;
+  --red-25: #FFEBEB;
+  --red-50: #FFD6D6;
+  --red-100: #FFB8B8;
+  --red-200: #FF9999;
+  --red-300: #FF7575;
+  --red-400: #FF4D4D;
+  --red-500: #FF0505;
+  --red-600: #E40101;
+  --red-700: #AD0000;
+  --red-800: #800000;
+  --red-900: #420000;
+
+  /* Gradients - General */
+  --gradient-background-color: linear-gradient(171deg, #F7F9FF 0%, #E9EEFC 100%);
+  --gradient-ai-color: linear-gradient(135deg, #296DF5 0%, #AB39F3 100%);
+  --gradient-default: linear-gradient(135deg, #296DF5 0%, #7742FF 100%);
+  --gradient-p500-s500: linear-gradient(180deg, #296DF5 0%, #7742FF 100%);
+  --gradient-s400-p400: linear-gradient(90deg, #8E62FF 0%, #4D91FA 100%);
+  --gradient-p300-p400: linear-gradient(180deg, #74A9FB 0%, #4D91FA 100%);
+  --gradient-p50-s50: linear-gradient(180deg, #D8E7FE 0%, #E4D9FF 100%);
+  --gradient-p500-pur400: linear-gradient(135deg, #296DF5 0%, #B650F1 100%);
+  --gradient-pur400-p500: linear-gradient(135deg, #B650F1 0%, #296DF5 100%);
+  --gradient-c200-s200: linear-gradient(135deg, #84F4FB 0%, #BA9FFF 100%);
+  --gradient-s200-c200: linear-gradient(135deg, #BA9FFF 0%, #84F4FB 100%);
+  --gradient-l300-c300: linear-gradient(135deg, #C7E80C 0%, #08E1ED 100%);
+  --gradient-c300-l300: linear-gradient(135deg, #08E1ED 0%, #C7E80C 100%);
+  --gradient-l300-c300-50: linear-gradient(135deg, #C7E80C99 0%, #08E1ED99 100%);
+  --gradient-o500-r600: linear-gradient(135deg, #FF6733 0%, #E40101 100%);
+  --gradient-r600-o500: linear-gradient(135deg, #FF6733 0%, #FF6733 100%);
+  --gradient-o500-r600-50: linear-gradient(135deg, #FF673380 0%, #E4010180 100%);
+
+  /* Gradients - Primary */
+  --gradient-primary-01: linear-gradient(180deg, #9CC2FC 0%, #296DF5 100%);
+  --gradient-primary-02: linear-gradient(90deg, #9CC2FC 0%, #2962F5 100%);
+  --gradient-primary-03: linear-gradient(270deg, #9CC2FC 0%, #2962F5 100%);
+
+  /* Gradients - Secondary */
+  --gradient-secondary-01: linear-gradient(180deg, #CCB8FF 0%, #7742FF 100%);
+  --gradient-secondary-02: linear-gradient(90deg, #CCB8FF 0%, #7742FF 100%);
+  --gradient-secondary-03: linear-gradient(270deg, #CCB8FF 0%, #7742FF 100%);
+
+  /* Gradients - Neutral */
+  --gradient-neutral-01: linear-gradient(135deg, #D6DBE6 0%, #9FAEC6 100%);
+  --gradient-neutral-02: linear-gradient(135deg, #B5C1D3 0%, #8C9EBB 100%);
+
+  /* Gradients - Green */
+  --gradient-green-01: linear-gradient(180deg, #0EE775 0%, #0AA956 100%);
+  --gradient-green-02: linear-gradient(90deg, #0EE775 0%, #0AA956 100%);
+  --gradient-green-03: linear-gradient(270deg, #0EE775 0%, #0AA956 100%);
+
+  /* Gradients - Red */
+  --gradient-red-01: linear-gradient(180deg, #FF4D4D 0%, #E40101 100%);
+  --gradient-red-02: linear-gradient(90deg, #FF4D4D 0%, #E40101 100%);
+  --gradient-red-03: linear-gradient(270deg, #FF4D4D 0%, #E40101 100%);
+
+  /* Gradients - Yellow */
+  --gradient-yellow-01: linear-gradient(180deg, #FFE252 0%, #FAD000 100%);
+  --gradient-yellow-02: linear-gradient(90deg, #FFE252 0%, #FAD000 100%);
+  --gradient-yellow-03: linear-gradient(270deg, #FFE252 0%, #FAD000 100%);
+}

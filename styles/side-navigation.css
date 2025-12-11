@@ -1,0 +1,573 @@
+/* ========================================
+   AG Side Navigation Component Styles
+   ======================================== */
+
+/* Root CSS Variables for Side Navigation */
+:root {
+  /* Layout Dimensions */
+  --sidenav-collapsed-width: 100px;
+  --sidenav-expanded-width: 282px;
+  --sidenav-icon-rail-width: 64px;
+  --sidenav-divider-width: 1px;
+  --sidenav-right-column-width: 217px; /* 282 - 64 - 1 */
+  --sidenav-height: 800px;
+  
+  /* Navigation Colors - Using Design System Variables */
+  --sidenav-bg: #05153D; /* Custom navy blue for AG brand */
+  --sidenav-gradient-active: linear-gradient(267deg, rgba(74, 122, 255, 0.50) 11.41%, rgba(0, 29, 107, 0.30) 127.13%);
+  --sidenav-cyan-strip: var(--sidebar-accent); /* Uses --sidebar-accent from design system */
+  --sidenav-hover-bg: rgba(255, 255, 255, 0.05);
+  --sidenav-divider-color: rgba(255, 255, 255, 0.1);
+  --sidenav-parent-chip-active: rgba(101, 50, 231, 0.20);
+  --sidenav-parent-chip-text: #CCB8FF;
+  
+  /* Text Colors - Using Design System Variables */
+  --sidenav-text-active: var(--sidebar-foreground); /* Uses --sidebar-foreground */
+  --sidenav-text-inactive: var(--muted-foreground); /* Uses --muted-foreground */
+  --sidenav-text-child-active: var(--sidebar-foreground);
+  --sidenav-text-child-inactive: #E5E8F0;
+  --sidenav-text-nested-inactive: var(--muted-foreground);
+  
+  /* Pin Button */
+  --sidenav-pin-icon-color: #8C9EBB;
+  --sidenav-pin-hover-bg: rgba(255, 255, 255, 0.1);
+  
+  /* Menu Item Heights - Using Design System Spacing */
+  --sidenav-item-height: 56px;
+  --sidenav-subitem-height: 48px;
+  --sidenav-nested-item-height: 40px;
+  
+  /* Transitions */
+  --sidenav-transition-duration: 0.2s;
+  --sidenav-width-transition-duration: 0.3s;
+  --sidenav-transition-easing: ease;
+  
+  /* Borders - Using Design System Radius */
+  --sidenav-border-width: 4px;
+  --sidenav-border-radius: var(--radius); /* Uses --radius from design system */
+}
+
+/* ========================================
+   Main Container
+   ======================================== */
+
+.sidenav {
+  position: relative;
+  width: var(--sidenav-collapsed-width);
+  height: var(--sidenav-height);
+  background-color: var(--sidenav-bg);
+  display: flex;
+  flex-direction: column;
+  transition: width var(--sidenav-width-transition-duration) var(--sidenav-transition-easing);
+  font-family: 'Noto Sans', sans-serif;
+  overflow: hidden;
+}
+
+.sidenav.expanded {
+  width: var(--sidenav-expanded-width);
+}
+
+/* ========================================
+   Gradient Background
+   ======================================== */
+
+.sidenav__gradient-bg {
+  position: absolute;
+  height: 265px;
+  left: 50%;
+  overflow: hidden;
+  top: 535px;
+  transform: translateX(-50%);
+  width: var(--sidenav-collapsed-width);
+  pointer-events: none;
+  transition: width var(--sidenav-width-transition-duration) var(--sidenav-transition-easing);
+  z-index: 0;
+}
+
+.sidenav.expanded .sidenav__gradient-bg {
+  width: var(--sidenav-expanded-width);
+}
+
+.sidenav__gradient-inner {
+  position: absolute;
+  display: flex;
+  height: 528.346px;
+  align-items: center;
+  justify-content: center;
+  top: 0;
+  transform: translateX(-50%);
+  width: 547.208px;
+}
+
+.sidenav__gradient-inner.collapsed {
+  left: calc(50% + 59.22px);
+}
+
+.sidenav__gradient-inner.expanded {
+  left: calc(50% - 0.78px);
+}
+
+.sidenav__gradient-transform {
+  flex-shrink: 0;
+  transform: rotate(139.316deg) scaleY(-1);
+}
+
+.sidenav__gradient-container {
+  height: 292.73px;
+  position: relative;
+  width: 469.964px;
+}
+
+.sidenav__gradient-image-wrapper {
+  position: absolute;
+  inset: -28.49% -17.75%;
+}
+
+.sidenav__gradient-image {
+  display: block;
+  max-width: none;
+  width: 100%;
+  height: 100%;
+}
+
+/* ========================================
+   Header (Logo + Pin Button)
+   ======================================== */
+
+.sidenav__header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--spacing-10) var(--spacing-3);
+  box-sizing: border-box;
+  width: 100%;
+  position: relative;
+  z-index: 1;
+  flex-shrink: 0;
+}
+
+.sidenav__header.expanded {
+  justify-content: space-between;
+  padding: var(--spacing-10) var(--spacing-8) var(--spacing-10) var(--spacing-6);
+}
+
+/* Logo Container */
+.sidenav__logo-collapsed {
+  height: 32px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.sidenav__logo-collapsed img {
+  height: 32px;
+  width: auto;
+  display: block;
+}
+
+.sidenav__logo-expanded {
+  height: 32px;
+  width: 154px;
+  position: relative;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+/* Pin Button */
+.sidenav__pin-button {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: var(--spacing-2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius);
+  transition: background-color var(--sidenav-transition-duration);
+}
+
+.sidenav__pin-button:hover {
+  background-color: var(--sidenav-pin-hover-bg);
+}
+
+/* ========================================
+   Content Area
+   ======================================== */
+
+.sidenav__content {
+  display: flex;
+  flex: 1;
+  width: 100%;
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+}
+
+/* ========================================
+   Collapsed State (Icon Only)
+   ======================================== */
+
+.sidenav__menu-collapsed {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.sidenav__menu-item-collapsed {
+  width: 100%;
+  height: var(--sidenav-item-height);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: none;
+  border-right: var(--sidenav-border-width) solid transparent;
+  cursor: pointer;
+  transition: all var(--sidenav-transition-duration) var(--sidenav-transition-easing);
+  box-sizing: border-box;
+  position: relative;
+}
+
+.sidenav__menu-item-collapsed.active {
+  background: var(--sidenav-gradient-active);
+  border-right-color: var(--sidenav-cyan-strip);
+}
+
+.sidenav__menu-item-collapsed:not(.active):hover {
+  background-color: var(--sidenav-hover-bg);
+}
+
+/* ========================================
+   Expanded State (Icon + Label)
+   ======================================== */
+
+.sidenav__menu-expanded {
+  width: var(--sidenav-expanded-width);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.sidenav__menu-item-expanded {
+  width: 100%;
+  height: var(--sidenav-item-height);
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-3);
+  padding: 0 var(--spacing-4);
+  padding-left: var(--spacing-6);
+  background: transparent;
+  border: none;
+  border-right: var(--sidenav-border-width) solid transparent;
+  cursor: pointer;
+  transition: all var(--sidenav-transition-duration) var(--sidenav-transition-easing);
+  box-sizing: border-box;
+  color: var(--sidenav-text-inactive);
+  font-size: var(--text-body-md);
+  font-weight: var(--font-weight-semibold);
+  text-align: left;
+  position: relative;
+}
+
+.sidenav__menu-item-expanded.active {
+  background: var(--sidenav-gradient-active);
+  border-right-color: var(--sidenav-cyan-strip);
+  color: var(--sidenav-text-active);
+}
+
+.sidenav__menu-item-expanded:not(.active):hover {
+  background-color: var(--sidenav-hover-bg);
+}
+
+.sidenav__menu-item-icon {
+  flex-shrink: 0;
+  width: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sidenav__menu-item-label {
+  flex-grow: 1;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* ========================================
+   2nd Level State (Icon Rail + Content)
+   ======================================== */
+
+/* Icon Rail (Left Column) */
+.sidenav__icon-rail {
+  width: var(--sidenav-icon-rail-width);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.sidenav__icon-rail-item {
+  width: 100%;
+  height: var(--sidenav-item-height);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: none;
+  border-right: var(--sidenav-border-width) solid transparent;
+  cursor: pointer;
+  transition: all var(--sidenav-transition-duration) var(--sidenav-transition-easing);
+  box-sizing: border-box;
+  position: relative;
+}
+
+.sidenav__icon-rail-item.active {
+  background: var(--sidenav-gradient-active);
+  border-right-color: var(--sidenav-cyan-strip);
+}
+
+.sidenav__icon-rail-item:not(.active):hover {
+  background-color: var(--sidenav-hover-bg);
+}
+
+/* Vertical Divider */
+.sidenav__divider {
+  width: var(--sidenav-divider-width);
+  height: 100%;
+  background: var(--sidenav-divider-color);
+  flex-shrink: 0;
+}
+
+/* Right Column (Parent Chip + Children) */
+.sidenav__right-column {
+  width: var(--sidenav-right-column-width);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+/* Parent Chip */
+.sidenav__parent-chip {
+  width: 100%;
+  height: var(--sidenav-item-height);
+  display: flex;
+  align-items: center;
+  padding: 0 var(--spacing-4);
+  background: var(--sidenav-gradient-active);
+  border-right: var(--sidenav-border-width) solid var(--sidenav-cyan-strip);
+  box-sizing: border-box;
+  color: var(--sidenav-text-active);
+  font-size: var(--text-body-sm);
+  font-weight: var(--font-weight-bold);
+  flex-shrink: 0;
+  position: relative;
+}
+
+.sidenav__parent-chip.has-active-child {
+  background: var(--sidenav-parent-chip-active);
+  border-right-color: transparent;
+  color: var(--sidenav-parent-chip-text);
+}
+
+/* 2nd Level Menu Items Container */
+.sidenav__submenu-container {
+  width: 100%;
+}
+
+/* Group Header (for subGroups) */
+.sidenav__group-header {
+  width: 100%;
+  height: var(--sidenav-item-height);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 var(--spacing-4);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  transition: all var(--sidenav-transition-duration) var(--sidenav-transition-easing);
+  box-sizing: border-box;
+  color: var(--sidenav-text-active);
+  font-size: var(--text-body-md);
+  font-weight: var(--font-weight-medium);
+  text-align: left;
+}
+
+.sidenav__group-header:hover {
+  background-color: var(--sidenav-hover-bg);
+}
+
+.sidenav__group-chevron {
+  flex-shrink: 0;
+  transition: transform var(--sidenav-transition-duration) var(--sidenav-transition-easing);
+}
+
+.sidenav__group-chevron.expanded {
+  transform: rotate(90deg);
+}
+
+/* 2nd Level Item */
+.sidenav__subitem {
+  width: 100%;
+  height: var(--sidenav-subitem-height);
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 0 var(--spacing-4) 0 var(--spacing-5);
+  background: transparent;
+  border: none;
+  border-right: var(--sidenav-border-width) solid transparent;
+  cursor: pointer;
+  transition: all var(--sidenav-transition-duration) var(--sidenav-transition-easing);
+  box-sizing: border-box;
+  color: var(--sidenav-text-child-inactive);
+  font-size: var(--text-body-sm);
+  font-weight: var(--font-weight-normal);
+  text-align: left;
+  position: relative;
+}
+
+.sidenav__subitem.has-children {
+  justify-content: space-between;
+}
+
+.sidenav__subitem.active {
+  background: var(--sidenav-gradient-active);
+  border-right-color: var(--sidenav-cyan-strip);
+  color: var(--sidenav-text-child-active);
+}
+
+.sidenav__subitem:not(.active):hover {
+  background-color: var(--sidenav-hover-bg);
+}
+
+.sidenav__subitem-chevron {
+  flex-shrink: 0;
+  margin-left: var(--spacing-2);
+  transition: transform var(--sidenav-transition-duration) var(--sidenav-transition-easing);
+}
+
+.sidenav__subitem-chevron.expanded {
+  transform: rotate(90deg);
+}
+
+/* 3rd Level Nested Items */
+.sidenav__nested-item {
+  width: 100%;
+  height: var(--sidenav-nested-item-height);
+  display: flex;
+  align-items: center;
+  padding: 0 var(--spacing-4) 0 var(--spacing-10);
+  background: transparent;
+  border: none;
+  border-right: var(--sidenav-border-width) solid transparent;
+  cursor: pointer;
+  transition: all var(--sidenav-transition-duration) var(--sidenav-transition-easing);
+  box-sizing: border-box;
+  color: var(--sidenav-text-nested-inactive);
+  font-size: 13px;
+  font-weight: var(--font-weight-normal);
+  text-align: left;
+  position: relative;
+}
+
+.sidenav__nested-item.active {
+  background: var(--sidenav-gradient-active);
+  border-right-color: var(--sidenav-cyan-strip);
+  color: var(--sidenav-text-child-active);
+}
+
+.sidenav__nested-item:not(.active):hover {
+  background-color: var(--sidenav-hover-bg);
+}
+
+/* ========================================
+   Group Item (for grouped menus)
+   ======================================== */
+
+.sidenav__group-item {
+  width: 100%;
+  height: var(--sidenav-subitem-height);
+  display: flex;
+  align-items: center;
+  padding: 0 var(--spacing-4) 0 var(--spacing-8);
+  background: transparent;
+  border: none;
+  border-right: var(--sidenav-border-width) solid transparent;
+  cursor: pointer;
+  transition: all var(--sidenav-transition-duration) var(--sidenav-transition-easing);
+  box-sizing: border-box;
+  color: var(--sidenav-text-nested-inactive);
+  font-size: var(--text-body-md);
+  font-weight: var(--font-weight-normal);
+  text-align: left;
+  position: relative;
+}
+
+.sidenav__group-item.active {
+  background: rgba(96, 165, 250, 0.3);
+  border-right-color: var(--sidenav-cyan-strip);
+  color: var(--sidenav-text-active);
+}
+
+.sidenav__group-item:not(.active):hover {
+  background-color: var(--sidenav-hover-bg);
+}
+
+/* ========================================
+   Scrollbar Styling
+   ======================================== */
+
+.sidenav__menu-collapsed::-webkit-scrollbar,
+.sidenav__menu-expanded::-webkit-scrollbar,
+.sidenav__icon-rail::-webkit-scrollbar,
+.sidenav__right-column::-webkit-scrollbar {
+  width: 4px;
+}
+
+.sidenav__menu-collapsed::-webkit-scrollbar-track,
+.sidenav__menu-expanded::-webkit-scrollbar-track,
+.sidenav__icon-rail::-webkit-scrollbar-track,
+.sidenav__right-column::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.sidenav__menu-collapsed::-webkit-scrollbar-thumb,
+.sidenav__menu-expanded::-webkit-scrollbar-thumb,
+.sidenav__icon-rail::-webkit-scrollbar-thumb,
+.sidenav__right-column::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 2px;
+}
+
+.sidenav__menu-collapsed::-webkit-scrollbar-thumb:hover,
+.sidenav__menu-expanded::-webkit-scrollbar-thumb:hover,
+.sidenav__icon-rail::-webkit-scrollbar-thumb:hover,
+.sidenav__right-column::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+/* ========================================
+   Utility Classes
+   ======================================== */
+
+.sidenav__hidden {
+  display: none;
+}
+
+.sidenav__visible {
+  display: flex;
+}
